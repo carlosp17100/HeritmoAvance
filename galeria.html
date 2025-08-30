@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Multimedia - Música Tradicional Tolimense</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-yellow: #FFEE00;
+            --color-green: #008800;
+            --color-red: #EE1111;
+            --color-yellow-light: #fff9c4;
+            --color-green-dark: #006600;
+            --color-red-dark: #cc0000;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #fffbe6 0%, #fff9c4 25%, #fff7a0 50%, #fff4d6 75%, #fef3c7 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--color-yellow) 0%, var(--color-green) 50%, var(--color-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--color-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 136, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: var(--color-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 136, 0, 0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .photo-item {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid transparent;
+        }
+
+        .photo-item:nth-child(3n+1) {
+            border-color: var(--color-yellow);
+        }
+
+        .photo-item:nth-child(3n+2) {
+            border-color: var(--color-green);
+        }
+
+        .photo-item:nth-child(3n+3) {
+            border-color: var(--color-red);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+
+
+        .photo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+
+        .media-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 2rem;
+            backdrop-filter: blur(10px);
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .photo-item:hover .media-overlay {
+            opacity: 1;
+        }
+
+        .media-type-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .video-badge {
+            background: var(--color-red);
+        }
+
+        .image-badge {
+            background: var(--color-green);
+        }
+
+
+
+        /* Animación de entrada */
+        .photo-item {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .photo-item:nth-child(1) { animation-delay: 0.1s; }
+        .photo-item:nth-child(2) { animation-delay: 0.2s; }
+        .photo-item:nth-child(3) { animation-delay: 0.3s; }
+        .photo-item:nth-child(4) { animation-delay: 0.4s; }
+        .photo-item:nth-child(5) { animation-delay: 0.5s; }
+        .photo-item:nth-child(6) { animation-delay: 0.6s; }
+        .photo-item:nth-child(7) { animation-delay: 0.7s; }
+        .photo-item:nth-child(8) { animation-delay: 0.8s; }
+        .photo-item:nth-child(9) { animation-delay: 0.9s; }
+        .photo-item:nth-child(10) { animation-delay: 1s; }
+        .photo-item:nth-child(11) { animation-delay: 0.1s; }
+        .photo-item:nth-child(12) { animation-delay: 0.2s; }
+        .photo-item:nth-child(13) { animation-delay: 0.3s; }
+        .photo-item:nth-child(14) { animation-delay: 0.4s; }
+        .photo-item:nth-child(15) { animation-delay: 0.5s; }
+        .photo-item:nth-child(16) { animation-delay: 0.6s; }
+        .photo-item:nth-child(17) { animation-delay: 0.7s; }
+        .photo-item:nth-child(18) { animation-delay: 0.8s; }
+        .photo-item:nth-child(19) { animation-delay: 0.9s; }
+        .photo-item:nth-child(20) { animation-delay: 1s; }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        /* Modal para vista completa de imágenes */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+            }
+            to {
+                opacity: 1;
+                backdrop-filter: blur(8px);
+            }
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 95vw;
+            max-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalScaleIn 0.3s ease;
+        }
+
+        @keyframes modalScaleIn {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .modal-video {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+
+        /* Estilos específicos para imágenes verticales */
+        .modal-image[data-orientation="portrait"] {
+            max-height: 90vh;
+            width: auto;
+        }
+
+        /* Estilos específicos para imágenes horizontales */
+        .modal-image[data-orientation="landscape"] {
+            max-width: 90vw;
+            height: auto;
+        }
+
+        /* Estilos para videos en modal */
+        .modal-video[data-orientation="portrait"] {
+            max-height: 90vh;
+            width: auto;
+        }
+
+        .modal-video[data-orientation="landscape"] {
+            max-width: 90vw;
+            height: auto;
+        }
+
+        /* Controles de video personalizados */
+        .video-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            z-index: 1002;
+        }
+
+        .modal:hover .video-controls {
+            opacity: 1;
+        }
+
+        .video-control-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .video-progress {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin: 0 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-progress-bar {
+            height: 100%;
+            background: var(--color-yellow);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .video-time {
+            color: white;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            min-width: 80px;
+            justify-content: center;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-close:hover {
+            background: var(--color-red);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 10px 30px rgba(238, 17, 17, 0.4);
+        }
+
+        .modal-close:active {
+            transform: scale(0.95) rotate(90deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .modal-content {
+                max-width: 98vw;
+                max-height: 98vh;
+                padding: 1rem;
+            }
+
+            .modal-close {
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .modal-image {
+                border-radius: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .modal-content {
+                max-width: 100vw;
+                max-height: 100vh;
+                padding: 0.5rem;
+            }
+
+            .modal-close {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.25rem;
+            }
+
+            .modal-image {
+                border-radius: 0.25rem;
+            }
+        }
+
+        /* Orientación landscape en móviles */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .modal-image[data-orientation="portrait"] {
+                max-height: 85vh;
+            }
+            
+            .modal-image[data-orientation="landscape"] {
+                max-width: 95vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📸🎥 Galería Multimedia</h1>
+            <p class="subtitle">Documentación visual y audiovisual del proyecto de investigación musical tolimense</p>
+            <a href="index.html" class="back-button">
+                ← Regresar al inicio
+            </a>
+        </div>
+
+        <div class="gallery">
+            <!-- Imágenes -->
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/1.jpg" alt="Foto 1">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/2.jpg" alt="Foto 2">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/3.JPG" alt="Foto 3">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/4.jpg" alt="Foto 4">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/5.jpg" alt="Foto 5">
+                <div class="media-overlay">🔍</div>
+            </div>
+
+            <!-- Videos -->
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'video')" style="position: relative;">
+                <div class="media-type-badge video-badge">🎥 VIDEO</div>
+                <video class="video-element" muted preload="metadata">
+                    <source src="Videos/1.mp4" type="video/mp4">
+                    <source src="Videos/1.webm" type="video/webm">
+                    Su navegador no soporta videos.
+                </video>
+                <div class="media-overlay">▶️</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'video')" style="position: relative;">
+                <div class="media-type-badge video-badge">🎥 VIDEO</div>
+                <video class="video-element" muted preload="metadata">
+                    <source src="Videos/2.mp4" type="video/mp4">
+                    <source src="Videos/2.webm" type="video/webm">
+                    Su navegador no soporta videos.
+                </video>
+                <div class="media-overlay">▶️</div>
+            </div>
+
+            <!-- Más imágenes -->
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/6.JPG" alt="Foto 6">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/7.JPG" alt="Foto 7">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'video')" style="position: relative;">
+                <div class="media-type-badge video-badge">🎥 VIDEO</div>
+                <video class="video-element" muted preload="metadata">
+                    <source src="Videos/3.mp4" type="video/mp4">
+                    <source src="Videos/3.webm" type="video/webm">
+                    Su navegador no soporta videos.
+                </video>
+                <div class="media-overlay">▶️</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/8.jpg" alt="Foto 8">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/9.jpg" alt="Foto 9">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'video')" style="position: relative;">
+                <div class="media-type-badge video-badge">🎥 VIDEO</div>
+                <video class="video-element" muted preload="metadata">
+                    <source src="Videos/4.mp4" type="video/mp4">
+                    <source src="Videos/4.webm" type="video/webm">
+                    Su navegador no soporta videos.
+                </video>
+                <div class="media-overlay">▶️</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/10.jpg" alt="Foto 10">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/11.jpg" alt="Foto 11">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'video')" style="position: relative;">
+                <div class="media-type-badge video-badge">🎥 VIDEO</div>
+                <video class="video-element" muted preload="metadata">
+                    <source src="Videos/5.mp4" type="video/mp4">
+                    <source src="Videos/5.webm" type="video/webm">
+                    Su navegador no soporta videos.
+                </video>
+                <div class="media-overlay">▶️</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/12.jpg" alt="Foto 12">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/13.jpg" alt="Foto 13">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/14.jpg" alt="Foto 14">
+                <div class="media-overlay">🔍</div>
+            </div>
+            <div class="photo-item" onclick="openMediaModal(this.querySelector('img, video'), 'image')" style="position: relative;">
+                <div class="media-type-badge image-badge">📷 FOTO</div>
+                <img class="photo-image" src="Fotos/15.jpg" alt="Foto 15">
+                <div class="media-overlay">🔍</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver imágenes y videos -->
+    <div id="mediaModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeMediaModal()">&times;</span>
+            <img id="modalImage" class="modal-image" style="display: none;">
+            <video id="modalVideo" class="modal-video" controls style="display: none;">
+                Su navegador no soporta videos.
+            </video>
+            <!-- Controles personalizados para video -->
+            <div id="videoControls" class="video-controls" style="display: none;">
+                <button id="playPauseBtn" class="video-control-btn">▶️</button>
+                <div class="video-progress" id="videoProgress">
+                    <div class="video-progress-bar" id="progressBar"></div>
+                </div>
+                <div class="video-time" id="videoTime">0:00 / 0:00</div>
+                <button id="muteBtn" class="video-control-btn">🔊</button>
+                <button id="fullscreenBtn" class="video-control-btn">⛶</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openMediaModal(element, type) {
+            const modal = document.getElementById('mediaModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalVideo = document.getElementById('modalVideo');
+            const videoControls = document.getElementById('videoControls');
+            
+            modal.style.display = 'block';
+            
+            if (type === 'image') {
+                modalImg.style.display = 'block';
+                modalVideo.style.display = 'none';
+                videoControls.style.display = 'none';
+                
+                modalImg.src = element.src;
+                modalImg.alt = element.alt;
+                
+                // Detectar orientación de la imagen
+                modalImg.onload = function() {
+                    const aspectRatio = this.naturalWidth / this.naturalHeight;
+                    if (aspectRatio > 1) {
+                        this.setAttribute('data-orientation', 'landscape');
+                    } else {
+                        this.setAttribute('data-orientation', 'portrait');
+                    }
+                };
+            } else if (type === 'video') {
+                modalImg.style.display = 'none';
+                modalVideo.style.display = 'block';
+                videoControls.style.display = 'flex';
+                
+                // Copiar todas las fuentes del video
+                modalVideo.innerHTML = element.innerHTML;
+                modalVideo.load();
+                
+                // Configurar controles de video
+                setupVideoControls();
+                
+                // Detectar orientación del video
+                modalVideo.addEventListener('loadedmetadata', function() {
+                    const aspectRatio = this.videoWidth / this.videoHeight;
+                    if (aspectRatio > 1) {
+                        this.setAttribute('data-orientation', 'landscape');
+                    } else {
+                        this.setAttribute('data-orientation', 'portrait');
+                    }
+                });
+            }
+            
+            // Prevenir scroll del body cuando el modal está abierto
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMediaModal() {
+            const modal = document.getElementById('mediaModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            modal.style.display = 'none';
+            
+            // Pausar video si está reproduciéndose
+            if (!modalVideo.paused) {
+                modalVideo.pause();
+            }
+            
+            // Restaurar scroll del body
+            document.body.style.overflow = 'auto';
+        }
+
+        function setupVideoControls() {
+            const video = document.getElementById('modalVideo');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const progressBar = document.getElementById('progressBar');
+            const videoProgress = document.getElementById('videoProgress');
+            const videoTime = document.getElementById('videoTime');
+            const muteBtn = document.getElementById('muteBtn');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+            // Play/Pause
+            playPauseBtn.onclick = function() {
+                if (video.paused) {
+                    video.play();
+                    this.textContent = '⏸️';
+                } else {
+                    video.pause();
+                    this.textContent = '▶️';
+                }
+            };
+
+            // Actualizar progreso
+            video.addEventListener('timeupdate', function() {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = progress + '%';
+                
+                const current = formatTime(video.currentTime);
+                const duration = formatTime(video.duration);
+                videoTime.textContent = `${current} / ${duration}`;
+            });
+
+            // Seek en la barra de progreso
+            videoProgress.onclick = function(e) {
+                const rect = this.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const percentage = clickX / rect.width;
+                video.currentTime = percentage * video.duration;
+            };
+
+            // Mute/Unmute
+            muteBtn.onclick = function() {
+                video.muted = !video.muted;
+                this.textContent = video.muted ? '🔇' : '🔊';
+            };
+
+            // Fullscreen
+            fullscreenBtn.onclick = function() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            };
+
+            // Reset cuando termine el video
+            video.addEventListener('ended', function() {
+                playPauseBtn.textContent = '▶️';
+                progressBar.style.width = '0%';
+            });
+        }
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('mediaModal').onclick = function(event) {
+            if (event.target === this) {
+                closeMediaModal();
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMediaModal();
+            }
+        });
+
+        // Navegación con teclado en el modal
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('mediaModal');
+            const video = document.getElementById('modalVideo');
+            
+            if (modal.style.display === 'block') {
+                switch(event.key) {
+                    case 'Escape':
+                        closeMediaModal();
+                        break;
+                    case ' ':
+                        // Spacebar para play/pause videos
+                        if (video.style.display === 'block') {
+                            event.preventDefault();
+                            if (video.paused) {
+                                video.play();
+                                document.getElementById('playPauseBtn').textContent = '⏸️';
+                            } else {
+                                video.pause();
+                                document.getElementById('playPauseBtn').textContent = '▶️';
+                            }
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        // Retroceder 10 segundos en video
+                        if (video.style.display === 'block') {
+                            video.currentTime = Math.max(0, video.currentTime - 10);
+                        }
+                        break;
+                    case 'ArrowRight':
+                        // Avanzar 10 segundos en video
+                        if (video.style.display === 'block') {
+                            video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                        }
+                        break;
+                    case 'ArrowUp':
+                        // Subir volumen
+                        if (video.style.display === 'block') {
+                            video.volume = Math.min(1, video.volume + 0.1);
+                        }
+                        break;
+                    case 'ArrowDown':
+                        // Bajar volumen
+                        if (video.style.display === 'block') {
+                            video.volume = Math.max(0, video.volume - 0.1);
+                        }
+                        break;
+                    case 'm':
+                    case 'M':
+                        // Mute/unmute
+                        if (video.style.display === 'block') {
+                            video.muted = !video.muted;
+                            document.getElementById('muteBtn').textContent = video.muted ? '🔇' : '🔊';
+                        }
+                        break;
+                }
+            }
+        });
+
+        // Mejorar la experiencia táctil en dispositivos móviles
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.getElementById('mediaModal').addEventListener('touchstart', function(event) {
+            touchStartY = event.changedTouches[0].screenY;
+        });
+
+        document.getElementById('mediaModal').addEventListener('touchend', function(event) {
+            touchEndY = event.changedTouches[0].screenY;
+            const difference = Math.abs(touchStartY - touchEndY);
+            
+            // Si el usuario hace swipe hacia arriba o abajo por más de 100px, cerrar modal
+            if (difference > 100) {
+                closeMediaModal();
+            }
+        });
+
+        // Precargar videos para mejorar la experiencia
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('.video-element');
+            videos.forEach(video => {
+                video.addEventListener('mouseenter', function() {
+                    if (this.readyState === 0) {
+                        this.load();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
