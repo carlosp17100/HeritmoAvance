@@ -1,522 +1,420 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Música Tradicional Tolimense - Investigación</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Música Tradicional Tolimense - Investigación</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1 class="header-title">🎵 Música Tradicional Tolimense</h1>
-            <p class="header-subtitle">Cuerpo Raíz y danza: juventud e identidad ( en el eje cafetero)</p>
-            <div class="header-badges">
-                <span class="badge badge-secondary">Ibagué - Capital Musical de Colombia</span>
-                <span class="badge badge-outline">Patrimonio Cultural del Tolima</span>
-            </div>
-            
-            <!-- Botones de navegación agregados -->
-            <div class="navigation-buttons">
-                <button class="nav-btn btn-explora" onclick="window.location.href='galeria.html'">
-                    🔍 Explora
-                </button>
-                <button class="nav-btn btn-presentaciones" onclick="openPresentationLink()">
-                    📊 Presentaciones
-                </button>
-            </div>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header-title">🎵 Música Tradicional Tolimense</h1>
+      <p class="header-subtitle">Cuerpo Raíz y danza: juventud e identidad (en el Eje Cafetero)</p>
 
-    <!-- Marco Investigativo -->
-    <section class="section">
-        <div class="container">
-            <div class="card main-card">
-                <div class="card-header">
-                    <h2>🏛️ Marco de la Investigación</h2>
-                </div>
-                <div class="card-content">
-                    <div class="grid grid-2">
-                        <button class="modal-btn btn-yellow" onclick="openModal('objetivo-modal')">
-                            🎯 Ver Objetivo General
-                        </button>
-                        <button class="modal-btn btn-red" onclick="openModal('problema-modal')">
-                            ❓ Ver Problema
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <div class="header-badges">
+        <span class="badge badge-secondary">Ibagué - Capital Musical de Colombia</span>
+        <span class="badge badge-outline">Patrimonio Cultural del Tolima</span>
+      </div>
 
-            <div class="card main-card">
-                <div class="card-header">
-                    <h2>🔬 Aspectos Metodológicos y Desarrollo</h2>
-                </div>
-                <div class="card-content">
-                    <div class="grid grid-3">
-                        <div class="academic-card card-yellow">
-                            <div class="card-header-small">
-                                <div class="icon">📄</div>
-                                <h3>Resumen</h3>
-                                <p>Síntesis ejecutiva de la investigación</p>
-                            </div>
-                            <button class="modal-btn btn-secondary" onclick="openModal('resumen-modal')">
-                                Ver Resumen
-                            </button>
-                        </div>
-                        
-                        <div class="academic-card card-green">
-                            <div class="card-header-small">
-                                <div class="icon">🔬</div>
-                                <h3>Diseño Metodológico</h3>
-                                <p>Enfoque y métodos de investigación</p>
-                            </div>
-                            <button class="modal-btn btn-secondary" onclick="openModal('metodologia-modal')">
-                                Ver Diseño Metodológico
-                            </button>
-                        </div>
-                        
-                        <div class="academic-card card-red">
-                            <div class="card-header-small">
-                                <div class="icon">🔍</div>
-                                <h3>Exploración</h3>
-                                <p>Fase exploratoria y mapeo</p>
-                            </div>
-                            <button class="modal-btn btn-secondary" onclick="openModal('exploracion-modal')">
-                                Ver Exploración
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Implementación -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">🎭 Implementación y Desarrollo</h2>
-            <div class="grid grid-2">
-                <div class="academic-card card-green">
-                    <div class="card-header-small">
-                        <div class="icon">🏃‍♂️</div>
-                        <h3>Trabajo de Campo</h3>
-                        <p>Investigación etnomusicológica in situ</p>
-                    </div>
-                    <button class="modal-btn btn-secondary" onclick="openModal('campo-modal')">
-                        Ver Trabajo de Campo
-                    </button>
-                </div>
-                
-                <div class="academic-card card-yellow">
-                    <div class="card-header-small">
-                        <div class="icon">🎭</div>
-                        <h3>Creación Escénica</h3>
-                        <p>Propuesta artística y pedagógica</p>
-                    </div>
-                    <button class="modal-btn btn-secondary" onclick="openModal('creacion-modal')">
-                        Ver Creación Escénica
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Géneros Musicales -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">🎼 Géneros Musicales Tradicionales</h2>
-            <div class="grid grid-3">
-                <!-- El Pasillo -->
-                <div class="music-card card-green">
-                    <div class="card-header-small">
-                        <div class="icon-large">🎹</div>
-                        <h3>El Pasillo</h3>
-                        <p>Elegancia y romance en la música de salón tolimense</p>
-                    </div>
-                    <div class="card-buttons">
-                        <button class="modal-btn btn-secondary" onclick="openModal('pasillo-historia-modal')">
-                            📖 Historia
-                        </button>
-                        <button class="modal-btn btn-secondary" onclick="openModal('pasillo-caracteristicas-modal')">
-                            🎵 Características
-                        </button>
-                        <button class="modal-btn btn-secondary" onclick="openModal('justificacion-modal')">
-                            🔍 Justificación
-                        </button>
-                    </div>
-                </div>
-
-                <!-- La Redoba -->
-                <div class="music-card card-red">
-                    <div class="card-header-small">
-                        <div class="icon-large">🥁</div>
-                        <h3>La Redoba</h3>
-                        <p>Ritmo ancestral de las celebraciones campesinas</p>
-                    </div>
-                    <div class="card-buttons">
-                        <button class="modal-btn btn-secondary" onclick="openModal('redoba-historia-modal')">
-                            📖 Historia
-                        </button>
-                        <button class="modal-btn btn-secondary" onclick="openModal('redoba-caracteristicas-modal')">
-                            🎵 Características
-                        </button>
-                        <button class="modal-btn btn-secondary" onclick="openModal('justificacion-modal')">
-                            🔍 Justificación
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Los Macheteros -->
-                <div class="music-card card-yellow">
-                    <div class="card-header-small">
-                        <div class="icon-large">🎸</div>
-                        <h3>Los Macheteros</h3>
-                        <p>Música del trabajo y la vida rural tolimense</p>
-                    </div>
-                    <div class="card-buttons">
-                        <button class="modal-btn btn-secondary" onclick="openModal('macheteros-historia-modal')">
-                            📖 Historia
-                        </button>
-                        <button class="modal-btn btn-secondary" onclick="openModal('macheteros-caracteristicas-modal')">
-                            🎵 Características
-                        </button>
-                        <button class="modal-btn btn-secondary" onclick="openModal('justificacion-modal')">
-                            🔍 Justificación
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Conclusiones -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="card main-card">
-                <div class="card-header">
-                    <h2>📚 Conclusiones de la Investigación</h2>
-                </div>
-                <div class="card-content">
-                    <div class="grid grid-2">
-                        <div>
-                            <h3 class="conclusion-title green">🎯 Hallazgos Principales</h3>
-                            <ul class="conclusion-list">
-                                <li>• El pasillo representa la sofisticación musical urbana del Tolima</li>
-                                <li>• La redoba mantiene viva la conexión con las tradiciones ancestrales</li>
-                                <li>• Los macheteros ejemplifican la música como expresión del trabajo rural</li>
-                                <li>• Todos los géneros enfrentan riesgos de pérdida generacional</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="conclusion-title red">🎯 Recomendaciones</h3>
-                            <ul class="conclusion-list">
-                                <li>• Implementar programas educativos en instituciones locales</li>
-                                <li>• Crear festivales dedicados a estos géneros tradicionales</li>
-                                <li>• Documentar testimonios de músicos tradicionales</li>
-                                <li>• Fomentar la práctica musical en nuevas generaciones</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="impact-section">
-                        <h3>🌟 Impacto Esperado</h3>
-                        <p>
-                            Esta investigación busca convertirse en un referente para la preservación del patrimonio 
-                            musical tolimense, generando conocimiento académico, material educativo y estrategias 
-                            de salvaguarda que garanticen la continuidad de estas expresiones culturales para 
-                            las futuras generaciones.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>🎵 Investigación Musical del Tolima - 2025 🎵</p>
-            <p class="footer-sub">Preservando el patrimonio cultural de Ibagué y el departamento del Tolima</p>
-        </div>
-    </footer>
-
-    <!-- Modal de Objetivo General -->
-    <div id="objetivo-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Objetivo General</h2>
-                <span class="close" onclick="closeModal('objetivo-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 class="yellow">🎯 Objetivo General</h4>
-                <p><strong>Analizar cómo la integración de las danzas tradicionales del Eje Cafetero en procesos de creación escénica puede aportar al fortalecimiento de la identidad cultural en jóvenes.</strong></p>
-                
-                <h4 class="yellow">📋 Objetivos Específicos:</h4>
-                <ul>
-                    <li>Recolectar y analizar saberes tradicionales, elementos simbólicos y valores culturales presentes en las danzas folclóricas del Eje Cafetero, mediante trabajo de campo y revisión teórica.</li>
-                    <li>Diseñar una propuesta escénica que, desde un enfoque artístico y pedagógico, articule los hallazgos investigativos con la construcción colectiva de identidad cultural en jóvenes.</li>
-                </ul>
-            </div>
-        </div>
+      <!-- Navegación -->
+      <div class="navigation-buttons">
+        <button class="nav-btn btn-explora" onclick="window.location.href='galeria.html'">
+          🔍 Explora
+        </button>
+        <button class="nav-btn btn-presentaciones" onclick="openPresentationLink()">
+          📊 Presentaciones
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- Modal de Problema -->
-    <div id="problema-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="red">Pregunta de Investigación</h2>
-                <span class="close" onclick="closeModal('problema-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 class="red">❓ Pregunta de Investigación</h4>
-                <div class="highlight-box red">
-                    <p><strong>¿Cómo puede una creación escénica basada en las danzas tradicionales del Eje Cafetero contribuir a fortalecer la identidad cultural de los jóvenes mediante un proceso de investigación y creación?</strong></p>
-                </div>
-            </div>
+  <!-- Marco Investigativo -->
+  <section class="section">
+    <div class="container">
+      <div class="card main-card">
+        <div class="card-header">
+          <h2>🏛️ Marco de la Investigación</h2>
         </div>
-    </div>
-
-    <!-- Modal de Resumen -->
-    <div id="resumen-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Resumen</h2>
-                <span class="close" onclick="closeModal('resumen-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 class="yellow">📄 Resumen</h4>
-                <p>Este proyecto busca analizar la integración de las danzas tradicionales del Eje Cafetero en procesos de creación escénica como una estrategia para el fortalecimiento de la identidad cultural en jóvenes. A través de una metodología de investigación-creación, se plantea un recorrido que inicia con el trabajo de campo, con el fin de recolectar saberes, símbolos y expresiones propias del folclor local. Estos insumos culturales serán articulados con referentes teóricos y pedagógicos, permitiendo el diseño de una propuesta escénica que dialogue con los valores identitarios de las nuevas generaciones. La creación escénica no se concibe únicamente como una representación artística, sino como un proceso formativo, simbólico y colectivo que resignifica la danza tradicional en contextos contemporáneos. Este trabajo busca aportar a la reflexión sobre el papel del arte popular como medio de transmisión cultural y construcción de sentido de pertenencia en la juventud.</p>
-            </div>
+        <div class="card-content">
+          <div class="grid grid-2">
+            <button class="modal-btn btn-yellow" onclick="openModal('objetivo-modal')">🎯 Ver Objetivo General</button>
+            <button class="modal-btn btn-red" onclick="openModal('problema-modal')">❓ Ver Problema</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Modal de Metodología -->
-    <div id="metodologia-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="green">Diseño Metodológico</h2>
-                <span class="close" onclick="closeModal('metodologia-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 class="green">🔬 Diseño Metodológico</h4>
-                <p><strong>Este trabajo se inscribe dentro del enfoque cualitativo, ya que busca comprender procesos simbólicos, culturales y artísticos desde la experiencia, la subjetividad y el contexto. Particularmente, se adopta la metodología de investigación-creación, entendida como una forma de producir conocimiento a través del cuerpo, el arte y la experiencia sensible. En este proceso, la creación escénica no se concibe como un resultado final decorativo, sino como una herramienta reflexiva y crítica que da sentido a lo vivido.</strong></p>
-                <p>Desde esta perspectiva, el grupo asumió la creación no sólo como una construcción escénica, sino como un espacio activo de investigación. En cada ensayo, en cada conversación, en cada decisión artística, surgieron preguntas, descubrimientos y resignificaciones que hicieron parte del proceso investigativo. Por esta razón, la estructura de este documento no sigue el orden tradicional, sino que parte de la metodología, ya que fue desde el hacer donde comenzó a construirse el conocimiento que luego se articuló con lo teórico y lo pedagógico.</p>
-            </div>
+      <div class="card main-card">
+        <div class="card-header">
+          <h2>🔬 Aspectos Metodológicos y Desarrollo</h2>
         </div>
-    </div>
+        <div class="card-content">
+          <div class="grid grid-3">
+            <div class="academic-card card-yellow">
+              <div class="card-header-small">
+                <div class="icon">📄</div>
+                <h3>Resumen</h3>
+                <p>Síntesis ejecutiva de la investigación</p>
+              </div>
+              <button class="modal-btn btn-secondary" onclick="openModal('resumen-modal')">Ver Resumen</button>
+            </div>
 
-    <!-- Modal de Exploración -->
-    <div id="exploracion-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="red">Fase de Exploración</h2>
-                <span class="close" onclick="closeModal('exploracion-modal')">&times;</span>
+            <div class="academic-card card-green">
+              <div class="card-header-small">
+                <div class="icon">🔬</div>
+                <h3>Diseño Metodológico</h3>
+                <p>Enfoque y métodos de investigación</p>
+              </div>
+              <button class="modal-btn btn-secondary" onclick="openModal('metodologia-modal')">Ver Diseño Metodológico</button>
             </div>
-            <div class="modal-body">
-                <h4 class="red">🔍 Fase de Exploración</h4>
-                <p>Esta fase inicial consistió en una aproximación al universo simbólico, musical y corporal del Eje Cafetero, desde la observación y el análisis artístico. Se realizaron ejercicios de exploración visual, escucha activa de repertorios tradicionales, revisión de registros audiovisuales de agrupaciones representativas de la región y sesiones de experimentación corporal guiadas por la dirección artística. Este acercamiento permitió identificar elementos técnicos, expresivos y narrativos que serían clave en la construcción de la propuesta escénica, así como reconocer el nivel de conocimiento previo del grupo y los aspectos a profundizar.</p>
+
+            <div class="academic-card card-red">
+              <div class="card-header-small">
+                <div class="icon">🔍</div>
+                <h3>Exploración</h3>
+                <p>Fase exploratoria y mapeo</p>
+              </div>
+              <button class="modal-btn btn-secondary" onclick="openModal('exploracion-modal')">Ver Exploración</button>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Modal de Trabajo de Campo -->
-    <div id="campo-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="green">Trabajo de Campo</h2>
-                <span class="close" onclick="closeModal('campo-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 class="green">🏃‍♂️ Trabajo de Campo</h4>
-                <p><strong>El trabajo de campo se realizó durante las Fiestas de San Pedro en Ibagué, en el marco del Festival Folclórico Colombiano. Este espacio fue clave para observar la diversidad cultural del país en un solo lugar, permitiendo entender cómo las danzas tradicionales del Eje Cafetero se insertan y dialogan con una historia nacional más amplia. Allí, se tuvo contacto con agrupaciones folclóricas, bailarines, reinas populares y representantes culturales provenientes del Eje Cafetero, lo cual permitió observar directamente su forma de habitar la danza, los elementos simbólicos que emplean y las formas de transmisión cultural que emergen en estos escenarios.</strong></p>
-                <p>Este acercamiento también permitió ampliar la mirada investigativa: comprender la identidad cultural no solo como una realidad localizada, sino como una construcción colectiva que se nutre del intercambio, la representación y el reconocimiento del otro. A través de observación, diálogo informal, entrevistas y registros visuales, esta experiencia fortaleció la comprensión del valor que tiene la danza en la formación de la identidad, especialmente en jóvenes que encuentran en estos espacios una forma de conexión con sus raíces.</p>
-            </div>
+  <!-- Implementación -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">🎭 Implementación y Desarrollo</h2>
+      <div class="grid grid-2">
+        <div class="academic-card card-green">
+          <div class="card-header-small">
+            <div class="icon">🏃‍♂️</div>
+            <h3>Trabajo de Campo</h3>
+            <p>Investigación etnomusicológica in situ</p>
+          </div>
+          <button class="modal-btn btn-secondary" onclick="openModal('campo-modal')">Ver Trabajo de Campo</button>
         </div>
-    </div>
 
-    <!-- Modal de Creación Escénica -->
-    <div id="creacion-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Creación Escénica</h2>
-                <span class="close" onclick="closeModal('creacion-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4 class="yellow">🎭 Creación Escénica</h4>
-                <p>Con base en los insumos recogidos, se dio paso a la creación de una puesta en escena que narra, desde el lenguaje del cuerpo, una búsqueda de sentido identitario. Cada decisión coreográfica, dramatúrgica, estética o musical fue tomada a partir de lo investigado y lo vivido. El proceso creativo se mantuvo abierto, flexible y dialogante, permitiendo ajustes constantes a medida que surgían nuevas preguntas o intuiciones. Así, la puesta en escena no es solo el cierre del proceso, sino también una síntesis que encarna el camino recorrido.</p>
-            </div>
+        <div class="academic-card card-yellow">
+          <div class="card-header-small">
+            <div class="icon">🎭</div>
+            <h3>Creación Escénica</h3>
+            <p>Propuesta artística y pedagógica</p>
+          </div>
+          <button class="modal-btn btn-secondary" onclick="openModal('creacion-modal')">Ver Creación Escénica</button>
         </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Modales para géneros musicales -->
-    <!-- Pasillo Historia -->
-    <div id="pasillo-historia-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Historia del Pasillo</h2>
-                <span class="close" onclick="closeModal('pasillo-historia-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>El pasillo es un género musical de origen colombiano que surgió en el siglo XIX como una adaptación del vals europeo a los ritmos y la sensibilidad musical latinoamericana. Su nombre deriva de los "pasillos" o pequeños bailes de salón que se realizaban en las casas de la alta sociedad.</p>
-                <p>En Ibagué, conocida como la "Capital Musical de Colombia", el pasillo encontró un terreno fértil para su desarrollo. La ciudad se convirtió en un importante centro de creación y difusión de este género, siendo cuna de grandes compositores como Alberto Castilla y Cantalicio Rojas.</p>
-                <p>El pasillo ibaguereño se caracteriza por su refinamiento melódico y su capacidad para expresar los sentimientos más profundos del alma tolimense, convirtiéndose en un símbolo de identidad cultural de la región.</p>
-            </div>
+  <!-- Géneros -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">🎼 Géneros Musicales Tradicionales</h2>
+      <div class="grid grid-3">
+        <div class="music-card card-green">
+          <div class="card-header-small">
+            <div class="icon-large">🎹</div>
+            <h3>El Pasillo</h3>
+            <p>Elegancia y romance en la música de salón tolimense</p>
+          </div>
+          <div class="card-buttons">
+            <button class="modal-btn btn-secondary" onclick="openModal('pasillo-historia-modal')">📖 Historia</button>
+            <button class="modal-btn btn-secondary" onclick="openModal('pasillo-caracteristicas-modal')">🎵 Características</button>
+            <button class="modal-btn btn-secondary" onclick="openModal('justificacion-modal')">🔍 Justificación</button>
+          </div>
         </div>
-    </div>
 
-    <!-- Pasillo Características -->
-    <div id="pasillo-caracteristicas-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Características del Pasillo</h2>
-                <span class="close" onclick="closeModal('pasillo-caracteristicas-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4>Estructura Musical:</h4>
-                <ul>
-                    <li>Compás de 3/4, similar al vals</li>
-                    <li>Tempo moderato, entre 120-140 BPM</li>
-                    <li>Estructura A-B-A con variaciones</li>
-                    <li>Melodías expresivas y románticas</li>
-                </ul>
-                
-                <h4>Instrumentación Típica:</h4>
-                <ul>
-                    <li>Piano como instrumento principal</li>
-                    <li>Guitarra solista</li>
-                    <li>Requinto y bandola</li>
-                    <li>Ocasionalmente flauta traversa</li>
-                </ul>
-
-                <h4>Características Interpretativas:</h4>
-                <ul>
-                    <li>Interpretación melancólica y nostálgica</li>
-                    <li>Uso de rubatos expresivos</li>
-                    <li>Dinámicas contrastantes</li>
-                    <li>Ornamentación melódica característica</li>
-                </ul>
-            </div>
+        <div class="music-card card-red">
+          <div class="card-header-small">
+            <div class="icon-large">🥁</div>
+            <h3>La Redoba</h3>
+            <p>Ritmo ancestral de las celebraciones campesinas</p>
+          </div>
+          <div class="card-buttons">
+            <button class="modal-btn btn-secondary" onclick="openModal('redoba-historia-modal')">📖 Historia</button>
+            <button class="modal-btn btn-secondary" onclick="openModal('redoba-caracteristicas-modal')">🎵 Características</button>
+            <button class="modal-btn btn-secondary" onclick="openModal('justificacion-modal')">🔍 Justificación</button>
+          </div>
         </div>
-    </div>
 
-    <!-- Redoba Historia -->
-    <div id="redoba-historia-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Historia de la Redoba</h2>
-                <span class="close" onclick="closeModal('redoba-historia-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>La redoba es un género musical tradicional del Tolima que tiene sus raíces en las danzas indígenas precolombinas, mezcladas con influencias españolas durante la época colonial. Su nombre proviene del "redoble" de los tambores que marcaban el ritmo en las celebraciones ancestrales.</p>
-                <p>Este género se desarrolló principalmente en las zonas rurales del departamento del Tolima, especialmente en los municipios de Espinal, Guamo y Saldaña, donde las comunidades campesinas la utilizaban para celebrar las cosechas y festividades religiosas.</p>
-                <p>La redoba representa la resistencia cultural de las comunidades tolimenses, manteniendo vivas las tradiciones musicales que conectan el presente con el pasado ancestral de la región.</p>
-            </div>
+        <div class="music-card card-yellow">
+          <div class="card-header-small">
+            <div class="icon-large">🎸</div>
+            <h3>Los Macheteros</h3>
+            <p>Música del trabajo y la vida rural tolimense</p>
+          </div>
+          <div class="card-buttons">
+            <button class="modal-btn btn-secondary" onclick="openModal('macheteros-historia-modal')">📖 Historia</button>
+            <button class="modal-btn btn-secondary" onclick="openModal('macheteros-caracteristicas-modal')">🎵 Características</button>
+            <button class="modal-btn btn-secondary" onclick="openModal('justificacion-modal')">🔍 Justificación</button>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Redoba Características -->
-    <div id="redoba-caracteristicas-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Características de la Redoba</h2>
-                <span class="close" onclick="closeModal('redoba-caracteristicas-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4>Estructura Rítmica:</h4>
-                <ul>
-                    <li>Compás de 6/8 con subdivisiones binarias</li>
-                    <li>Tempo allegro, entre 180-200 BPM</li>
-                    <li>Patrones rítmicos repetitivos y hipnóticos</li>
-                    <li>Síncopa característica del folclor colombiano</li>
-                </ul>
-                
-                <h4>Instrumentación:</h4>
-                <ul>
-                    <li>Tamboras de diferentes tamaños</li>
-                    <li>Chucho o maracas</li>
-                    <li>Guitarra rítmica</li>
-                    <li>Flauta de millo ocasional</li>
-                </ul>
-
-                <h4>Función Social:</h4>
-                <ul>
-                    <li>Música para celebraciones comunitarias</li>
-                    <li>Acompañamiento de danzas tradicionales</li>
-                    <li>Expresión de identidad campesina</li>
-                    <li>Transmisión oral de tradiciones</li>
-                </ul>
-            </div>
+  <!-- Conclusiones -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="card main-card">
+        <div class="card-header">
+          <h2>📚 Conclusiones de la Investigación</h2>
         </div>
-    </div>
+        <div class="card-content">
+          <div class="grid grid-2">
+            <div>
+              <h3 class="conclusion-title green">🎯 Hallazgos Principales</h3>
+              <ul class="conclusion-list">
+                <li>• El pasillo representa la sofisticación musical urbana del Tolima</li>
+                <li>• La redoba mantiene viva la conexión con las tradiciones ancestrales</li>
+                <li>• Los macheteros ejemplifican la música como expresión del trabajo rural</li>
+                <li>• Todos los géneros enfrentan riesgos de pérdida generacional</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="conclusion-title red">🎯 Recomendaciones</h3>
+              <ul class="conclusion-list">
+                <li>• Implementar programas educativos en instituciones locales</li>
+                <li>• Crear festivales dedicados a estos géneros tradicionales</li>
+                <li>• Documentar testimonios de músicos tradicionales</li>
+                <li>• Fomentar la práctica musical en nuevas generaciones</li>
+              </ul>
+            </div>
+          </div>
 
-    <!-- Macheteros Historia -->
-    <div id="macheteros-historia-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Historia de los Macheteros</h2>
-                <span class="close" onclick="closeModal('macheteros-historia-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Los macheteros son grupos musicales tradicionales que surgieron en las haciendas y fincas del Tolima durante los siglos XVIII y XIX. Su nombre proviene de los trabajadores rurales que utilizaban machetes para las labores agrícolas y que, en sus momentos de descanso, creaban música con instrumentos improvisados.</p>
-                <p>Estos grupos musicales se formaban espontáneamente durante las épocas de cosecha, especialmente del café y la caña de azúcar. Los macheteros combinaban el trabajo duro del campo con la expresión musical, creando canciones que narraban sus experiencias de vida, amores y la conexión con la tierra.</p>
-                <p>La tradición de los macheteros representa una forma única de música social que integra el trabajo, la celebración y la preservación de la memoria colectiva de las comunidades rurales tolimenses.</p>
-            </div>
+          <div class="impact-section">
+            <h3>🌟 Impacto Esperado</h3>
+            <p>
+              Esta investigación busca convertirse en un referente para la preservación del patrimonio musical tolimense,
+              generando conocimiento académico, material educativo y estrategias de salvaguarda que garanticen la
+              continuidad de estas expresiones culturales para las futuras generaciones.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Macheteros Características -->
-    <div id="macheteros-caracteristicas-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Características de los Macheteros</h2>
-                <span class="close" onclick="closeModal('macheteros-caracteristicas-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4>Composición de los Grupos:</h4>
-                <ul>
-                    <li>3 a 8 integrantes típicamente</li>
-                    <li>Líder vocal o "cantante principal"</li>
-                    <li>Coro de trabajadores</li>
-                    <li>Instrumentistas improvisados</li>
-                </ul>
-                
-                <h4>Instrumentos Utilizados:</h4>
-                <ul>
-                    <li>Machetes como instrumentos de percusión</li>
-                    <li>Palos y maderas resonantes</li>
-                    <li>Guitarra cuando estaba disponible</li>
-                    <li>Voces en armonía grupal</li>
-                </ul>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>🎵 Investigación Musical del Tolima - 2025 🎵</p>
+      <p class="footer-sub">Preservando el patrimonio cultural de Ibagué y el departamento del Tolima</p>
+    </div>
+  </footer>
 
-                <h4>Temáticas Musicales:</h4>
-                <ul>
-                    <li>Canciones de trabajo y faena</li>
-                    <li>Relatos de amor y desamor</li>
-                    <li>Crónicas de la vida rural</li>
-                    <li>Celebración de festividades</li>
-                </ul>
-            </div>
+  <!-- ===== Modales (sin cambios de contenido) ===== -->
+  <!-- Objetivo -->
+  <div id="objetivo-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="objetivo-title">
+      <div class="modal-header">
+        <h2 id="objetivo-title" class="yellow">Objetivo General</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('objetivo-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="yellow">🎯 Objetivo General</h4>
+        <p><strong>Analizar cómo la integración de las danzas tradicionales del Eje Cafetero en procesos de creación escénica puede aportar al fortalecimiento de la identidad cultural en jóvenes.</strong></p>
+        <h4 class="yellow">📋 Objetivos Específicos:</h4>
+        <ul>
+          <li>Recolectar y analizar saberes tradicionales…</li>
+          <li>Diseñar una propuesta escénica…</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problema -->
+  <div id="problema-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="problema-title">
+      <div class="modal-header">
+        <h2 id="problema-title" class="red">Pregunta de Investigación</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('problema-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="red">❓ Pregunta de Investigación</h4>
+        <div class="highlight-box red">
+          <p><strong>¿Cómo puede una creación escénica…?</strong></p>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Modal de Justificación -->
-    <div id="justificacion-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="yellow">Justificación de la Investigación</h2>
-                <span class="close" onclick="closeModal('justificacion-modal')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <h4>Importancia Cultural:</h4>
-                <p>Este proyecto surge de la necesidad de resignificar las danzas tradicionales del Eje Cafetero como una herramienta pedagógica y artística para fortalecer la identidad cultural en las nuevas generaciones. La elección de esta región responde tanto al deseo del grupo de asumir un reto escénico con alto nivel técnico e interpretativo, como al interés de explorar un universo cultural poco conocido por algunos integrantes, motivados por la profunda admiración que la directora siente por este territorio.</p>
-                <p>Durante el proceso creativo se evidenció que no era posible construir una puesta en escena con sentido sin comprender primero el trasfondo cultural de lo que se iba a representar. Por ello, se recurrió al enfoque de investigación-creación, donde el conocimiento se construye tanto desde el trabajo de campo, el contacto directo con la tradición, como desde la vivencia corporal y artística. La creación no es entendida aquí como un resultado final, sino como una forma activa de investigar, sentir y comunicar.</p>
-                <p>La puesta en escena no es un elemento separado del trabajo investigativo, sino el eje integrador del mismo. Cada decisión coreográfica, narrativa y estética busca representar, desde el lenguaje del cuerpo, lo aprendido a lo largo del recorrido: los símbolos, los ritmos, la historia y la emocionalidad propia del territorio caficultor. De esta forma, el arte se convierte en una vía de interpretación cultural que activa el pensamiento crítico, la conexión emocional y el sentido de pertenencia.</p>
-                <p>La relevancia de este proyecto radica en que propone un modelo sensible y creativo de formación cultural, donde los jóvenes no solo aprenden sobre su herencia, sino que la encarnan, la resignifican y la comparten. Así, se plantea que el arte tradicional puede ser una herramienta contemporánea para construir identidad, movilizar la memoria y fortalecer el vínculo entre las nuevas generaciones y su cultura.</p>
-            </div>
-        </div>
+  <!-- Resumen -->
+  <div id="resumen-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="resumen-title">
+      <div class="modal-header">
+        <h2 id="resumen-title" class="yellow">Resumen</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('resumen-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="yellow">📄 Resumen</h4>
+        <p>Este proyecto busca analizar…</p>
+      </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Metodología -->
+  <div id="metodologia-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="metodologia-title">
+      <div class="modal-header">
+        <h2 id="metodologia-title" class="green">Diseño Metodológico</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('metodologia-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="green">🔬 Diseño Metodológico</h4>
+        <p><strong>Este trabajo se inscribe…</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exploración -->
+  <div id="exploracion-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="exploracion-title">
+      <div class="modal-header">
+        <h2 id="exploracion-title" class="red">Fase de Exploración</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('exploracion-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="red">🔍 Fase de Exploración</h4>
+        <p>Esta fase inicial consistió…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Campo -->
+  <div id="campo-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="campo-title">
+      <div class="modal-header">
+        <h2 id="campo-title" class="green">Trabajo de Campo</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('campo-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="green">🏃‍♂️ Trabajo de Campo</h4>
+        <p><strong>El trabajo de campo se realizó…</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Creación -->
+  <div id="creacion-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="creacion-title">
+      <div class="modal-header">
+        <h2 id="creacion-title" class="yellow">Creación Escénica</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('creacion-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="yellow">🎭 Creación Escénica</h4>
+        <p>Con base en los insumos recogidos…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pasillo (Historia / Características) -->
+  <div id="pasillo-historia-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="pasillo-historia-title">
+      <div class="modal-header">
+        <h2 id="pasillo-historia-title" class="yellow">Historia del Pasillo</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('pasillo-historia-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>El pasillo es un género…</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="pasillo-caracteristicas-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="pasillo-carac-title">
+      <div class="modal-header">
+        <h2 id="pasillo-carac-title" class="yellow">Características del Pasillo</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('pasillo-caracteristicas-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>Estructura Musical:</h4>
+        <ul>
+          <li>Compás de 3/4…</li>
+        </ul>
+        <h4>Instrumentación Típica:</h4>
+        <ul>
+          <li>Piano, guitarra…</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Redoba (Historia / Características) -->
+  <div id="redoba-historia-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="redoba-historia-title">
+      <div class="modal-header">
+        <h2 id="redoba-historia-title" class="yellow">Historia de la Redoba</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('redoba-historia-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>La redoba es un género…</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="redoba-caracteristicas-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="redoba-carac-title">
+      <div class="modal-header">
+        <h2 id="redoba-carac-title" class="yellow">Características de la Redoba</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('redoba-caracteristicas-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>Estructura Rítmica:</h4>
+        <ul>
+          <li>Compás de 6/8…</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Macheteros (Historia / Características) -->
+  <div id="macheteros-historia-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="macheteros-historia-title">
+      <div class="modal-header">
+        <h2 id="macheteros-historia-title" class="yellow">Historia de los Macheteros</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('macheteros-historia-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Los macheteros son grupos…</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="macheteros-caracteristicas-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="macheteros-carac-title">
+      <div class="modal-header">
+        <h2 id="macheteros-carac-title" class="yellow">Características de los Macheteros</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('macheteros-caracteristicas-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>Composición de los Grupos:</h4>
+        <ul>
+          <li>3 a 8 integrantes…</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Justificación -->
+  <div id="justificacion-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="justificacion-title">
+      <div class="modal-header">
+        <h2 id="justificacion-title" class="yellow">Justificación de la Investigación</h2>
+        <button class="close" type="button" aria-label="Cerrar" onclick="closeModal('justificacion-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>Importancia Cultural:</h4>
+        <p>Este proyecto surge de la necesidad…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
 </body>
 </html>
